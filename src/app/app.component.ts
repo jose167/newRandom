@@ -54,13 +54,12 @@ export class AppComponent implements OnInit {
   callServer(valueMin, valueMax): void {
     console.log(valueMin, " ", valueMax);
     this._service.get("/api/Values/" + valueMin + "/" + valueMax)
-      .subscribe(result => {
+      .subscribe((result: string) => {
         let oneValue; 
 
-        oneValue = JSON.parse(result);
         //this.result1 = result.toString();
-        this.apiValues.push(oneValue);
-        console.log(typeof result);
+        this.apiValues.push(result);
+ 
        // console.log(result.tipeOf());
         
       }),
